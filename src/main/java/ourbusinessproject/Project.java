@@ -2,6 +2,7 @@ package ourbusinessproject;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "projects")
@@ -17,10 +18,12 @@ public class Project {
     @Column
     private String description;
 
-    public Project (){
-        this.title=null;
-        this.description=null;
-    }
+
+    @ManyToOne
+    @JoinColumn(name = "enterprise_id")
+    @NotNull
+    private Enterprise enterprise;
+
 
     /**
      * Set a title
@@ -44,5 +47,13 @@ public class Project {
      */
     public Long getId() {
         return this.id;
+    }
+
+    public void setEnterprise(Enterprise enterprise) {
+        this.enterprise=enterprise;
+    }
+
+    public Enterprise getEnterprise() {
+        return enterprise;
     }
 }
