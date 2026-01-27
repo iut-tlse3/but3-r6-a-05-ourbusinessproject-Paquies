@@ -38,19 +38,43 @@ public class Enterprise {
         this.contactName=null;
     }
 
+    /**
+     * Set the name
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * Set the description
+     * @param description
+     */
     public void setDescription(String description) {
         this.description = description;
     }
 
+    /**
+     * Set the ContactName
+     * @param contactName
+     */
     public void setContactName(String contactName) {
         this.contactName = contactName;
     }
 
+    /**
+     * Set the ContactEmail
+     * @param contactEmail
+     */
     public void setContactEmail(String contactEmail) {
         this.contactEmail = contactEmail;
+    }
+
+    /**
+     * Return the Id of the enterprise
+     * @return
+     */
+    public Object getId() {
+        return this.id;
     }
 }

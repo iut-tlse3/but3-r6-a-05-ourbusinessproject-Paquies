@@ -22,13 +22,27 @@ public class Project {
         this.description=null;
     }
 
+    /**
+     * Set a title
+     * @param title
+     */
     public void setTitle(String title){
         this.title = title;
     }
 
+    /**
+     * Set a description
+     * @param description
+     */
     public void setDescription(String description){
         this.description=description;
     }
 
-
+    /**
+     * Return the Id of the project
+     * @return
+     */
+    public Long getId() {
+        return this.id;
+    }
 }
