@@ -1,12 +1,20 @@
 package ourbusinessproject;
 
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 
+@Entity
+@Table(name = "projects")
 public class Project {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    @Column
     @NotBlank(message = "tiltle ne doit pas être vide")
-    @NotNull(message = "title ne doit pas être null")
     private String title;
+    @Column
     private String description;
 
     public Project (){

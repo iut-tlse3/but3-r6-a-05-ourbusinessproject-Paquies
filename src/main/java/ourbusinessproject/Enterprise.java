@@ -1,27 +1,33 @@
 package ourbusinessproject;
 
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
+@Entity
+@Table(name = "enterprises")
 public class Enterprise {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    @Column
     @NotBlank
-    @NotNull
     private String name;
 
+    @Column
     @NotBlank
-    @NotNull
     @Size(min = 10)
     private String description;
 
+    @Column
     @NotBlank
-    @NotNull
     private String contactName;
 
+    @Column
     @NotBlank
-    @NotNull
     @Email
     private String contactEmail;
 
