@@ -3,6 +3,7 @@ package ourbusinessproject;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import org.springframework.lang.NonNull;
 
 @Entity
 @Table(name = "projects")
@@ -50,10 +51,12 @@ public class Project {
     }
 
     public void setEnterprise(Enterprise enterprise) {
+
         this.enterprise=enterprise;
     }
 
     public Enterprise getEnterprise() {
         return enterprise;
     }
+
 }
