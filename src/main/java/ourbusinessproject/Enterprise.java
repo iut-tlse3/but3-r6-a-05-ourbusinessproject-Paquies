@@ -9,27 +9,22 @@ import java.util.Collection;
 import java.util.HashSet;
 
 @Entity
-@Table(name = "enterprises")
 public class Enterprise {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column
     @NotBlank
     private String name;
 
-    @Column
     @NotBlank
     @Size(min = 10)
     private String description;
 
-    @Column
     @NotBlank
     private String contactName;
 
-    @Column
     @NotBlank
     @Email
     private String contactEmail;

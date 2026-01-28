@@ -6,22 +6,18 @@ import jakarta.validation.constraints.NotNull;
 import org.springframework.lang.NonNull;
 
 @Entity
-@Table(name = "projects")
 public class Project {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column
     @NotBlank(message = "tiltle ne doit pas être vide")
     private String title;
-    @Column
     private String description;
 
 
     @ManyToOne
-    @JoinColumn(name = "enterprise_id")
     @NotNull
     private Enterprise enterprise;
 
@@ -66,4 +62,7 @@ public class Project {
         return enterprise;
     }
 
+    public String getTitle() {
+        return this.title;
+    }
 }
