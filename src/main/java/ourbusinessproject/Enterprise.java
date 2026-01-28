@@ -3,12 +3,10 @@ package ourbusinessproject;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
+import java.util.HashSet;
 
 @Entity
 @Table(name = "enterprises")
@@ -36,22 +34,34 @@ public class Enterprise {
     @Email
     private String contactEmail;
 
-    @OneToMany(mappedBy = "enterprise", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "enterprise")
     private Collection<Project> projects;
 
-
+    /**
+     * return the all the projects associate to an enterprise
+     * @return
+     */
     public Collection<Project> getProjects() {
         return projects;
     }
 
+    /**
+     * create the project collection
+     * @param projects
+     */
     public void setProjects(Collection<Project> projects){
         this.projects=projects;
     }
 
+    /**
+     * add a project to the collection
+     * @param project
+     */
     public void addProject(Project project) {
-
+        if (this.projects == null) {
+            this.projects = new HashSet<>();
+        }
         projects.add(project);
-        project.setEnterprise(this);
     }
 
     public Enterprise(){

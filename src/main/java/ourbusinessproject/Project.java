@@ -50,11 +50,18 @@ public class Project {
         return this.id;
     }
 
+    /**
+     * Set the enterprise
+     * @param enterprise
+     */
     public void setEnterprise(Enterprise enterprise) {
-
         this.enterprise=enterprise;
     }
 
+    /**
+     * return the enterprise of the project
+     * @return
+     */
     public Enterprise getEnterprise() {
         return enterprise;
     }

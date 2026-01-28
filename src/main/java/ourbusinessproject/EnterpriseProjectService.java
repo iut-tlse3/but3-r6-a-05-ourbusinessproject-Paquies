@@ -30,20 +30,13 @@ public class EnterpriseProjectService {
      * @return
      */
     public Project newProject(String aTitle, String aDescription, Enterprise enterprise1) {
-        if (enterprise1 == null){
-            throw new ConstraintViolationException("Enterprise cannot be null", null);
-        }
         Project project = new Project();
         project.setTitle(aTitle);
         project.setDescription(aDescription);
         project.setEnterprise(enterprise1);
-
-        if (enterprise1.getProjects() == null){
-            enterprise1.setProjects(new ArrayList<>());
-        }
-        enterprise1.getProjects().add(project);
         entityManager.persist(project);
         entityManager.flush();
+        enterprise1.addProject(project);
         return project;
     }
 
