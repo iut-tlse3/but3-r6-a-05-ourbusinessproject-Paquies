@@ -27,17 +27,17 @@ public class EnterpriseProjectService {
      *
      * @param aTitle
      * @param aDescription
-     * @param enterprise1
+     * @param enterprise
      * @return
      */
-    public Project newProject(String aTitle, String aDescription, Enterprise enterprise1) {
+    public Project newProject(String aTitle, String aDescription, Enterprise enterprise) {
         Project project = new Project();
         project.setTitle(aTitle);
         project.setDescription(aDescription);
-        project.setEnterprise(enterprise1);
+        project.setEnterprise(enterprise);
         entityManager.persist(project);
         entityManager.flush();
-        enterprise1.addProject(project);
+        enterprise.addProject(project);
         return project;
     }
 
