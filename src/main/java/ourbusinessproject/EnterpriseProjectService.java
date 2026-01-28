@@ -86,6 +86,10 @@ public class EnterpriseProjectService {
         return this.entityManager;
     }
 
+    /**
+     * return all the projects from the DB
+     * @return
+     */
     public List<Project> findAllProjects() {
         String query = "SELECT pr FROM Project pr ORDER By pr.title";
         TypedQuery<Project> queryObj = entityManager.createQuery(query,Project.class);
