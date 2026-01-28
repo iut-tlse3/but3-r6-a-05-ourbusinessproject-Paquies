@@ -106,6 +106,10 @@ public class Enterprise {
         return this.id;
     }
 
+    /**
+     * Return the Name of the enterprise
+     * @return
+     */
     public String getName() {
         return this.name;
     }
