@@ -19,6 +19,7 @@ public class InitializationService {
 
     @Transactional
     public void initProjects() {
+        // Since this method is Transactional, all statements inside are run in a single transaction.
         this.e1 = this.enterpriseProjectService.newEnterprise("e1","enterprise e1","enterprise1", "e1@gmail.com");
         this.e2 = this.enterpriseProjectService.newEnterprise("e2","enterprise e2", "enterprise2", "e2@gmail.com");
         this.project1E1 = this.enterpriseProjectService.newProject("p1e1", "project p1e1", this.e1);
