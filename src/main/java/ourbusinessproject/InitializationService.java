@@ -14,8 +14,15 @@ public class InitializationService {
     private Enterprise e1;
     private Enterprise e2;
 
+    private Partnership p1E1WithE2;
+    private Partnership p1E2WithE1;
+    private Partnership p2E1WithE2;
+
     @Autowired
     private EnterpriseProjectService enterpriseProjectService;
+
+    @Autowired
+    private PartnershipService partnershipService;
 
     @Transactional
     public void initProjects() {
@@ -25,6 +32,13 @@ public class InitializationService {
         this.project1E1 = this.enterpriseProjectService.newProject("p1e1", "project p1e1", this.e1);
         this.project1E2 = this.enterpriseProjectService.newProject("p1e2","project p1e2", this.e2);
         this.project2E1 = this.enterpriseProjectService.newProject("p2e1","project p2e1", this.e1);
+    }
+
+    @Transactional
+    public void initPartnerships() {
+        this.p1E1WithE2 = this.partnershipService.newPartnership(this.project1E1,this.e2);
+        this.p1E2WithE1 = this.partnershipService.newPartnership(this.project1E2, this.e1);
+        this.p2E1WithE2 = this.partnershipService.newPartnership(this.project2E1, e2);
     }
 
     /**
@@ -65,5 +79,19 @@ public class InitializationService {
      */
     public Enterprise getEnterprise2() {
         return this.e2;
+    }
+
+
+
+    public Partnership getPartnershipP1E1WithE2() {
+        return this.p1E1WithE2;
+    }
+
+    public Partnership getPartnershipP1E2WithE1() {
+        return this.p1E2WithE1;
+    }
+
+    public Partnership getPartnershipP2E1WithE2() {
+        return this.p2E1WithE2;
     }
 }

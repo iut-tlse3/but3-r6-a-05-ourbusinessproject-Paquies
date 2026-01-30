@@ -18,6 +18,7 @@ public class Bootstrap {
     public void init() {
         try {
             this.initializationService.initProjects();
+            this.initializationService.initPartnerships();
         } catch (RuntimeException e) {
             e.getStackTrace();
         }
