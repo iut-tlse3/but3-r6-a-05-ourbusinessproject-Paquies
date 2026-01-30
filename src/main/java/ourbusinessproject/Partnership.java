@@ -1,15 +1,23 @@
 package ourbusinessproject;
 
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
 import java.util.Date;
 
+@Entity
 public class Partnership {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
     @NotNull
-    private Date date;
+    private Date creationDate;
+    @ManyToOne
     @NotNull
     private Enterprise enterprise;
+    @ManyToOne
     @NotNull
     private Project project;
 
@@ -18,7 +26,7 @@ public class Partnership {
      * @param date
      */
     public void setCreationDate(Date date) {
-        this.date = date;
+        this.creationDate = date;
     }
 
     /**
@@ -35,5 +43,22 @@ public class Partnership {
      */
     public void setProject(Project project) {
         this.project=project;
+    }
+
+
+    public Enterprise getEnterprise() {
+        return enterprise;
+    }
+
+    public Date getCreationDate() {
+        return creationDate;
+    }
+
+    public Project getProject() {
+        return project;
+    }
+
+    public Long getId() {
+        return id;
     }
 }
